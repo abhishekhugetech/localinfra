@@ -24,7 +24,8 @@ x-shared: &shared
       - "host.docker.internal:host-gateway"
   volumes:
     - n8n_storage:/home/node/.n8n
-  network_mode: bridge  # Use the default Docker bridge network
+  networks:
+    - shared_network
 
 services:
   n8n:
@@ -37,3 +38,8 @@ services:
     command: worker
     depends_on:
       - n8n
+
+networks:
+  shared_network:
+    external: true
+    name: shared_network

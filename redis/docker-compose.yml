@@ -19,4 +19,11 @@ services:
       interval: 5s
       timeout: 5s
       retries: 10
-    network_mode: bridge  # Use the default Docker bridge network
+    networks:
+      - shared_network
+
+
+networks:
+  shared_network:
+    external: true
+    name: shared_network

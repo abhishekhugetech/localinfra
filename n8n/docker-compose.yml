@@ -20,6 +20,7 @@ x-shared: &shared
     - QUEUE_BULL_REDIS_HOST=${REDIS_HOST} # picks the default port 6379
     - QUEUE_HEALTH_CHECK_ACTIVE=true
     - N8N_ENCRYPTION_KEY=${ENCRYPTION_KEY}
+    - N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true
   extra_hosts:
       - "host.docker.internal:host-gateway"
   volumes:

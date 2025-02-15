@@ -26,8 +26,11 @@ The default name of the database, user and password for PostgreSQL can be change
 
 ### Add DB for running N8n
 
+Login into DB as admin and run the following commands to create a user for n8n.
+
 ```sql
 CREATE USER n8n WITH PASSWORD '123456atn8n';
 GRANT ALL PRIVILEGES ON DATABASE n8n TO n8n;
-GRANT CREATE ON SCHEMA public TO n8n;
+\c n8n
+GRANT ALL ON SCHEMA public TO n8n;
 ```

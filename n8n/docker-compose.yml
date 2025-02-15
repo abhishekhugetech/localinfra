@@ -21,6 +21,7 @@ x-shared: &shared
     - QUEUE_HEALTH_CHECK_ACTIVE=true
     - N8N_ENCRYPTION_KEY=${ENCRYPTION_KEY}
     - N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true
+    - N8N_SECURE_COOKIE=false
   extra_hosts:
       - "host.docker.internal:host-gateway"
   volumes:
@@ -32,7 +33,7 @@ services:
   n8n:
     <<: *shared
     ports:
-      - 5678:5678
+      - 5670:5678
 
   n8n-worker:
     <<: *shared
